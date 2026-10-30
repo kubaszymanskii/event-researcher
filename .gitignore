@@ -1,0 +1,11 @@
+# Sekrety – plik z prawdziwymi kluczami nigdy nie trafia do repozytorium
+.env
+
+# Środowisko i pliki tymczasowe Pythona
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+dist/
+build/
+*.egg-info/

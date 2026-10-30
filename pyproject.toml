@@ -1,0 +1,31 @@
+[project]
+name = "event-radar"
+version = "0.1.0"
+description = "Agent AI, który wyszukuje wydarzenia AI i startupowe w Polsce."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "httpx>=0.28.1",
+    "langchain-openai>=1.7.3",
+    "langgraph>=1.2.18",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+event-radar = "event_radar.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.11.32,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    # Ostrzeżenie z biblioteki langsmith (zależność LangChain) – nie dotyczy naszego kodu.
+    "ignore:'asyncio.iscoroutinefunction' is deprecated:DeprecationWarning",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
